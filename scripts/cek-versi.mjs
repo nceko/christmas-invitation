@@ -1,0 +1,23 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const read = p => fs.readFileSync(path.join(root, p), 'utf8')
+const app = read('src/App.tsx')
+const main = read('src/main.tsx')
+const css = read('src/styles.css')
+const config = read('src/config.ts')
+const isV5 = app.includes('V5 RED CHRISTMAS')
+const noOldCss = !main.includes('theme-v4.css') && !main.includes('theme-v3.css')
+const hasAudio = fs.existsSync(path.join(root, 'public/audio/christmas-bells.mp3'))
+const noNavbar = !app.includes('nav-desktop') && !app.includes('<Header')
+console.log(`\n🎄 DIAGNOSIS PROJECT NATAL`)
+console.log(`Folder aktif  : ${root}`)
+console.log(`Versi App    : ${isV5 ? 'V5 RED CHRISTMAS' : 'BUKAN V5'}`)
+console.log(`CSS aktif    : ${noOldCss ? 'styles.css saja' : 'ADA TEMA LAMA!'}`)
+console.log(`Tidak ada nav: ${noNavbar ? 'YA' : 'PERIKSA SOURCE'}`)
+console.log(`Audio lokal  : ${hasAudio ? 'ADA' : 'TIDAK DITEMUKAN'}`)
+console.log(`Mode demo    : ${/demoMode:\s*true/.test(config) ? 'YA' : 'TIDAK (cek akses RSVP Cloudflare)'}`)
+console.log(`Local URL    : http://localhost:5199`)
+console.log(`Tes identitas: http://localhost:5199/version.json\n`)
+if (!isV5 || !noOldCss || !hasAudio || !noNavbar || !css.includes('--red:#8c1a2b')) process.exit(1)
