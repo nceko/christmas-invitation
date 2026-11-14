@@ -12,7 +12,7 @@ import { dateParts, isHttpUrl, whatsappLink } from './lib/date'
 const event = invitation
 const flakes = Array.from({ length: 38 }, (_, n) => n)
 const stars = Array.from({ length: 19 }, (_, n) => n)
-const VERSION = 'V5 RED CHRISTMAS • 22 OKTOBER 2026'
+const VERSION = 'RED CHRISTMAS'
 
 function useGuest() {
   return useMemo(() => {
@@ -55,7 +55,7 @@ function Hero({ guestName }: { guestName: string }) {
   return <section className="hero" id="beranda" aria-labelledby="hero-title">
     <Snow />
     <div className="hero-glow" aria-hidden="true"/>
-    <div className="hero-top"><div className="brandmark"><span>✦</span><div><strong>NOËL</strong><small>CHRISTMAS CELEBRATION</small></div></div><div className="edition-mark">✧ &nbsp; {VERSION}</div></div>
+    <div className="hero-top"><div className="brandmark"><span>✦</span><div><strong>{event.venue}</strong><small>CHRISTMAS CELEBRATION</small></div></div><div className="edition-mark">✧ &nbsp; {VERSION}</div></div>
     <PineBranch className="corner-pine corner-pine-left"/><PineBranch className="corner-pine corner-pine-right"/>
     <div className="hanging-ornaments" aria-hidden="true"><i/><i/><i/></div>
     <div className="hero-layout">
@@ -128,7 +128,7 @@ function RSVP({guestName, token}: {guestName: string; token: string}) {
   return <section className="rsvp section-pad" id="rsvp" aria-labelledby="rsvp-title"><div className="content-wide"><div className="rsvp-card"><div className="rsvp-bulbs" aria-hidden="true">{Array.from({length:13},(_,n)=><span key={n}/>)}</div><div className="rsvp-inner"><Badge light>WE SAVED A SEAT FOR YOU</Badge><h2 id="rsvp-title">Kehadiranmu,<br/><em>Sukacita Kami.</em></h2><p className="rsvp-intro">Mohon berikan konfirmasi kehadiran melalui tombol di bawah ini.</p><AttendanceForm guestName={guestName} token={token} demoMode={event.demoMode}/><p className="rsvp-deadline"><CalendarDays size={15}/> Konfirmasi sebelum {d.day} {d.month} {d.year}</p><span className="rsvp-decoration" aria-hidden="true">✦ &nbsp; LET LOVE SHINE &nbsp; ✦</span></div></div></div></section>
 }
 
-function Footer() { return <footer className="footer"><span className="footer-star">✦</span><h2>NOËL</h2><p>Damai Natal menyertai kita semua.</p><small>“Kemuliaan bagi Allah di tempat yang mahatinggi.” — Lukas 2:14</small><div className="footer-base"><span>© {event.year} {event.organizer}</span><span>{VERSION}</span><a href="#beranda">Kembali ke atas ↑</a></div></footer> }
+function Footer() { return <footer className="footer"><span className="footer-star">✦</span><h2>{event.venue}</h2><p>Damai Natal menyertai kita semua.</p><small>“Kemuliaan bagi Allah di tempat yang mahatinggi.” — Lukas 2:14</small><div className="footer-base"><span>© {event.year} {event.organizer}</span><span>{VERSION}</span><a href="#beranda">Kembali ke atas ↑</a></div></footer> }
 
 function App() {
   const guest = useGuest()
