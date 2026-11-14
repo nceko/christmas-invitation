@@ -82,7 +82,7 @@ function Hero({ guestName }: { guestName: string }) {
   </section>
 }
 
-function About() {
+function About({ guestName }: { guestName: string }) {
   return <section className="about section-pad" id="tentang" aria-labelledby="about-title">
     <div className="about-wreath" aria-hidden="true">❦</div>
     <div className="content-narrow center">
@@ -92,7 +92,7 @@ function About() {
       <h2 id="about-title">Mari Rayakan <em>Keajaiban Natal</em> Bersama</h2>
       <p className="about-text">{event.eyebrow}. {event.invitationMessage}</p>
       <div className="verse-card"><span>“</span><blockquote>{event.verse}</blockquote><p>{event.verseReference}</p></div>
-      <p className="about-signer">Dengan sukacita mengundang, <strong>{event.organizer}</strong></p>
+      {guestName && <p className="about-signer">Dengan sukacita mengundang, <strong>{guestName}</strong></p>}
     </div>
   </section>
 }
@@ -165,7 +165,7 @@ function App() {
     <div className="scroll-progress" style={{width:`${progress}%`}} aria-hidden="true"/>
     {event.demoMode && <div className="demo-banner">MODE DEMO — Isi data acara di <strong>src/config.ts</strong> sebelum undangan dibagikan.</div>}
     {!opened && <Opening guestName={guest.name} onOpen={openInvitation} closing={closing}/>}
-    <main id="undangan-natal"><Hero guestName={guest.name}/><About/><CountdownSection/><Details/><Agenda/><RSVP guestName={guest.name} token={guest.token}/></main>
+    <main id="undangan-natal"><Hero guestName={guest.name}/><About guestName={guest.name}/><CountdownSection/><Details/><Agenda/><RSVP guestName={guest.name} token={guest.token}/></main>
     <Footer/>
     <div className="version-pill"><Check size={12}/>{VERSION}</div>
     <MusicControl audioUrl={event.audioUrl}/>

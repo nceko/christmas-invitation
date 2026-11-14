@@ -50,7 +50,7 @@ export const invitation: InvitationConfig = {
   invitationMessage:
     'Kehadiran Anda dan keluarga akan menjadi sukacita dan berkat yang begitu berarti bagi kami.',
   startsAt: '2026-12-18T19:00:00+07:00', 
-  endsAt: '2026-12-18T23:00:00+07:00',
+  endsAt: '2026-12-18T21:00:00+07:00',
   rsvpDeadline: '2026-12-17T23:59:00+07:00',
   venue: 'GKNI SPA Sungai Deden',
   address: 'GKNI SPA Sungai Deden',
@@ -60,9 +60,10 @@ export const invitation: InvitationConfig = {
   contactWhatsApp: '', 
   audioUrl: '/audio/christmas-bells.mp3',
   agenda: [
-    { time: '19.30', title: 'Registrasi & penyambutan', description: 'Penerimaan tamu dan ramah tamah.' },
-    { time: '20.00', title: 'Ibadah Natal', description: 'Pujian, doa, dan pemberitaan firman.' },
-    { time: '21.30', title: 'Persembahan sukacita', description: 'Penampilan spesial dan persembahan pujian.' },
-    { time: '22.15', title: 'Perayaan & kebersamaan', description: 'Foto bersama, pembagian kasih, dan penutup.' },
+    { time: '19.00', title: 'Penyambutan & Pembukaan Ibadah', description: 'Tamu dan jemaat diharapkan datang tepat waktu.' },
+    { time: '19.30', title: 'Ibadah Natal', description: 'Pujian, doa, dan pemberitaan firman.' },
+    { time: '20.00', title: 'Persembahan Pujian Dari Jemaat', description: 'Persembahan Pujian dan Penampilan dari jemaat GKNI.' },
+    { time: '20.30', title: 'Perayaan Natal', description: 'Pemberian Kenangan, Doorprize, Ramah Tamah dan Kesaksian.' },
+    { time: '21.00', title: 'Ibadah Selesai', description: 'Penutupan ibadah dan ucapan terima kasih.' },
   ],
 }
